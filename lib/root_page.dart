@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
+import 'timer.dart';
 
 class RootPage extends StatelessWidget {
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -15,7 +15,7 @@ class RootPage extends StatelessWidget {
                 child: Column(
                   children: <Widget>[
                     Text("Do 50 pushups", style: TextStyle(fontSize: 40, fontFamily: "Raleway", color: Colors.white), textAlign: TextAlign.center,),
-
+                    CountDownTimer()
                   ],
                 )
             ),
