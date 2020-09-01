@@ -1,14 +1,5 @@
 import 'package:flutter/material.dart';
 
-//class CountDownTimer extends StatefulWidget {
-//  @override
-//  _CountDownTimerState createState() => _CountDownTimerState();
-//}
-//
-//class _CountDownTimerState extends State<CountDownTimer> {
-//
-//}
-
 class CountDownTimer extends StatelessWidget {
 
   final radius = 8.0;
@@ -22,6 +13,7 @@ class CountDownTimer extends StatelessWidget {
     var seconds = 59 - DateTime.now().second;
     secondsLeft = (hours * 3600) + (minutes * 60) + seconds;
     animationLength = Duration(hours: hours, minutes: minutes, seconds: seconds);
+    print(secondsLeft/secondsInDay);
   }
 
   @override
@@ -36,8 +28,9 @@ class CountDownTimer extends StatelessWidget {
           duration: animationLength,
           builder: (BuildContext context, double x, Widget child) {
             return Container(
-              width: x * (MediaQuery.of(context).size.width),
+              width: x * (MediaQuery.of(context).size.width - 50),
               decoration: BoxDecoration(color: Colors.red, borderRadius: BorderRadius.all(Radius.circular(radius))),
+              margin: EdgeInsets.all(2),
             );
           }
       )
