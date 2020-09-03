@@ -7,15 +7,11 @@ class MainStuff extends StatelessWidget {
     return Container(
       child: Center(
           child: Column(
-        children: <Widget>[
-          Text(
-            "Do 50 pushups",
-            style: TextStyle(
-                fontSize: 40, fontFamily: "Raleway", color: Colors.white),
-            textAlign: TextAlign.center,
-          ),
-          Padding(padding: EdgeInsets.all(10)),
-          CountDownTimer()
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              Text("Do 50 pushups", style: TextStyle(fontSize: 40, fontFamily: "Raleway", color: Colors.white), textAlign: TextAlign.center,),
+              Padding(padding: EdgeInsets.all(10)),
+              CountDownTimer()
         ],
       )),
     );
