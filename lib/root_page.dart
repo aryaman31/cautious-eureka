@@ -11,7 +11,7 @@ class RootPage extends StatelessWidget {
         slivers: <Widget>[
           SliverAppBar(
             expandedHeight: 250,
-            collapsedHeight: 250,
+            collapsedHeight: 200,
             pinned: true,
             flexibleSpace: MainStuff(),
           ),
