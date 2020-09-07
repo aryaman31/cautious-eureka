@@ -1,7 +1,6 @@
 import 'dart:io';
 import 'package:path_provider/path_provider.dart';
 import 'dart:async';
-import 'package:flutter/foundation.dart';
 
 class TasksStorage {
   Future<String> get _localPath async {
@@ -29,7 +28,6 @@ class TasksStorage {
     } catch (e) {
 
       return '0';
-
     }
   }
 
@@ -38,7 +36,6 @@ class TasksStorage {
 
       final file = await _completedTasks;
       String contents = await file.readAsString();
-      print('test');
       return contents;
 
     } catch (e) {
@@ -48,14 +45,27 @@ class TasksStorage {
     }
   }
 
-  Future<File> appendToCompletedTasks(String newTask) async {
+  Future<File> writeToCompletedTasks(String newTask) async {
     final file = await _completedTasks;
-    String oldContents = await readCompletedTasks();
-    if (oldContents != '0') {
-      String newContent = oldContents + ',$newTask';
-      return file.writeAsString(newContent);
-    } else {
-      return file;
-    }
+    return file.writeAsString(newTask);
+  }
+
+  Future<File> writeToAllTasks(String newTask) async {
+    final file = await _allTasks;
+    return file.writeAsString(newTask);
+  }
+
+  Future<bool> completedTasksExists() async {
+    final file = await _completedTasks;
+    return file.exists();
+  }
+
+  Future<bool> allTasksExists() async {
+    final file = await _allTasks;
+    return file.exists();
+  }
+
+  Future<File> resetCompletedTasks() async {
+    return writeToCompletedTasks("Hmm I see you snooping :)");
   }
 }
